@@ -38,7 +38,6 @@ class FluentIgnitionErrorHandler
         } else {
             self::initWhoops();
         }
-        throw new Exception("Test exception for Whoops");
     
     
         // Modify plugin order on activation
