@@ -25,6 +25,10 @@ if ((defined('WP_DEBUG') && WP_DEBUG) || (defined('WP_DEVELOPMENT_MODE') && WP_D
             ->setTheme($theme)
             ->setEditor('phpstorm')//vscode
             ->register();
+    
+        require_once __DIR__ . '/src/_FluentIgnitionHelperAliases.php';
+        require_once __DIR__ . '/src/VarDumperHelpers.php';
+    
 
     } else {
         add_action('admin_notices', function () {
