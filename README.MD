@@ -2,6 +2,12 @@
 
 ![Banner](https://wpmanageninja.com/wp-content/uploads/2023/08/ignite-banner.png)
 
+
+### Whats New Here
+- Added Whoops Package for PHP Version <= 8 , need to run modify & update Composer 
+- Ignition Can be used by updating composer json file and updating composer, min PHP version >= 8
+- Added `vdd`,`dd`,`tvdd`,`ddPlain` helpder function for debuging
+
 ### Requirements
 
 - PHP 7.4 or higher
@@ -24,3 +30,4 @@ DO NOT USE THIS PLUGIN IN THE PRODUCTION SITE. THIS PLUGIN IS ONLY FOR DEVELOPME
 ### Packages Used
 
 - [Ignition](https://github.com/spatie/ignition)
+

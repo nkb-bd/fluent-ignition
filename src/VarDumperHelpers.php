@@ -22,6 +22,15 @@ class VarDumperHelpers
         VarDumper::dump($var);
     }
     
+    public static function dumpPlain($var)
+    {
+        $cloner = new VarCloner();
+        
+        $dumper = new CliDumper(fopen('php://output', 'w'));
+        
+        $dumper->dump($cloner->cloneVar($var));
+    }
+    
     private static function set_styles()
     {
         if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {

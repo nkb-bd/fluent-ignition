@@ -1,14 +1,14 @@
 {
   "require": {
-    "php": ">=7.4",
-    "filp/whoops": "^2.15"
+    "php": ">=8.1",
+    "filp/whoops": "^2.3",
+    "spatie/ignition": "^1.10"
   },
   "require-dev": {
-    "spatie/ignition": "^1.10"
   },
   "config": {
     "platform": {
-      "php": "7.4"
+      "php": "8.1"
     },
     "allow-plugins": {
       "composer/package-versions-deprecated": true

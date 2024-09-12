@@ -7,7 +7,7 @@ if (!function_exists('vdd')) {
     function vdd(...$vars)
     {
         foreach ($vars as $var) {
-            VarDumperHelpers::dumpWithCss($var);
+            VarDumperHelpers::dump($var);
         }
         die();
     }
@@ -24,10 +24,20 @@ if (!function_exists('vd')) {
 }
 
 if (!function_exists('dd')) {
-    function vdd(...$vars)
+    function dd(...$vars)
     {
         foreach ($vars as $var) {
             VarDumperHelpers::dump($var);
+        }
+        die();
+    }
+}
+
+if (!function_exists('ddPlain')) {
+    function ddPlain(...$vars)
+    {
+        foreach ($vars as $var) {
+            VarDumperHelpers::dumpPlain($var);
         }
         die();
     }

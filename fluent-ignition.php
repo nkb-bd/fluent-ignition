@@ -1,10 +1,10 @@
 <?php
-/*
+/**
 Plugin Name:  Fluent Ignition - Error Handling for Devs
 Plugin URI:   https://wpmanageninja.com
 Description:  [Require PHP 8.1] - A beautiful error page for WordPress Errors. Only for local development. DO NOT USE IN PRODUCTION.
 Version:      1.0.0
-Author:       techjewel
+Author:       techjewel,pyro_bd
 Author URI:   https://wpmanageninja.com
 License:      GPLv2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
@@ -59,14 +59,11 @@ class FluentIgnitionErrorHandler
         $acceptHeader = isset($_SERVER['HTTP_ACCEPT']) ? $_SERVER['HTTP_ACCEPT'] : '';
         
         if (strpos($acceptHeader, 'application/json') !== false) {
-            $handler = new \Whoops\Handler\JsonResponseHandler;
+          
            
             $whoops->pushHandler(new JsonResponseHandler());
         } else {
-            $handler = new \Whoops\Handler\PrettyPageHandler;
-            $handler->setEditor(function ($file, $line) {
-                return "vscode://file/$file:$line";
-            });
+           
     
             $whoops->pushHandler(new PrettyPageHandler());
             
@@ -76,6 +73,10 @@ class FluentIgnitionErrorHandler
     
     public static function modifyPluginOrder($plugins)
     {
+        if (!is_array($plugins)) {
+            error_log('FluentIgnition: $plugins is not an array. Type: ' . gettype($plugins));
+            return $plugins; // Return unchanged to avoid further errors
+        }
         $index = array_search('fluent-ignition/fluent-ignition.php', $plugins);
         if ($index !== false) {
             if ($index === 0) {
